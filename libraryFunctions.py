@@ -12,11 +12,6 @@ def to_one_hot(texto):
     texto = unidecode.unidecode(texto)
 
     caracteres_utilizados = []
-    #tamanho 27x1
-    #ir preenchendo com valores ascii
-    #diminuir 97 do valor de cada letra
-    #normalizar 
-    
     
     for letra in texto:
         #converte para código ascii e transforma em 0 a 27
@@ -79,5 +74,6 @@ def enigma_it():
 def from_enigma():
     pass
 
-
-# print(cipher_it("O dia está ensolarado"))
+cipher = to_one_hot('XNYZURGSJICWMFQKODHTBLPAVE ')
+print(cipher_it("aabbcc  eeeeee", cipher))
+print(from_cipher(cipher_it("aabbcc  eeeeee", cipher), cipher))

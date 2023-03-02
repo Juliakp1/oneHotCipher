@@ -1,8 +1,11 @@
 
 # A demo program to show off all of the actions you can take in the oneHotLibrary
 
-from demoFunctions import print_avaliable_functions, print_function_desc
+from demoFunctions import print_avaliable_functions, print_function_desc, prints_functions_premade
 
+print('')
+print('--------------------------------------')
+print('')
 print('Welcome to the demo program!')
 print('You can choose to see a pre-made algorythm or try it out for yourself! ')
 print('1 - See the pre-made demo')
@@ -17,10 +20,13 @@ while (demoSelect not in ['1','2']):
 
 demoSelect = int(demoSelect)
 
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
+
 if demoSelect == 1:
     print('')
     print('Great! Youve selected the pre-made demo, here are your options:')
     print_avaliable_functions()
+    print('')
     optionSelect = input()
 
     while (optionSelect not in ['1','2','3','4','5','6']):
@@ -29,14 +35,20 @@ if demoSelect == 1:
 
     print('')
     print('You have selected option ' + optionSelect + ', so here is what it does: ')
+
+    optionSelect = int(optionSelect)
+    print_function_desc(optionSelect)
     print('')
-    print_function_desc()
-    print('')
+    prints_functions_premade(optionSelect)
+
+    
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
 elif demoSelect == 2:
     print('')
     print('Great! Youve selected the diy demo, here are your options:')
     print_avaliable_functions()
+    print('')
     optionSelect = input()
 
     while (optionSelect not in ['1','2','3','4','5','6']):
@@ -46,8 +58,12 @@ elif demoSelect == 2:
     print('')
     print('Oh ummm, this part isnt fully fleshed out yet, unfortunatly :(')
     print('Please do try again in a later update though!')
-    print('')
 
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
+
+print('')
+print('--------------------------------------')
+print('')
 print('Thank you for trying out the demo! See you soon :D')
 print('')
 

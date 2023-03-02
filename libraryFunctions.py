@@ -34,13 +34,23 @@ def to_one_hot(texto):
     return array_saida
 
 
-print(to_one_hot("O dia está ensolarado"))
-
-
 # ----------------------------- #
 
-def to_string():
-    pass
+def to_string(mensagem_codificada):
+    
+    string = ""
+    
+    for i in mensagem_codificada:
+        j = 0
+        while j < 27:
+            if i[j] == 1:
+                caractere = j + 96
+                if j == 0:
+                    caractere = 32
+                letra = chr(caractere)
+                string += letra
+            j = j+1
+    return string
 
 # ----------------------------- #
 

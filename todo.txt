@@ -1,3 +1,6 @@
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
 A biblioteca deve conter:
 * Uma função `para_one_hot(msg : str)` para codificar mensagens como uma matriz usando one-hot encoding
 * Uma função `para_string(M : np.array)` para converter mensagens da representação one-hot encoding para uma string legível
@@ -6,7 +9,22 @@ A biblioteca deve conter:
 * Uma função `enigma(msg : str, P : np.array, E : np.array)` que faz a cifra enigma na mensagem de entrada usando o cifrador `P` e o cifrador auxiliar `E`, ambos representados como matrizes de permutação.
 * Uma função `de_enigma(msg : str, P : np.array, E : np.array)` que recupera uma mensagem cifrada como enigma assumindo que ela foi cifrada com o usando o cifrador `P` e o cifrador auxiliar `E`, ambos representados como matrizes de permutação.
 
-
-
 1. O grupo deve enviar um link para o repositório GitHub onde está localizada a biblioteca.
 2. No diretório principal do repositório, deve haver um programa `demo.py`, que, quando executado, demonstra o funcionamento de cada uma das funções da biblioteca
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Left to do:
+
+functions:
+    to_one_hot, 
+    to_string, 
+    cipher_it, 
+    from_cipher, 
+    enigma_it, 
+    from_enigma
+
+demo:
+    inputs in prints_functions_premade
+        require de encryptor
+        the necesary matrixes into the np.arrays

@@ -29,7 +29,7 @@ if demoSelect == 1:
     print('')
     optionSelect = input()
 
-    while (optionSelect not in ['1','2','3','4','5','6']):
+    while (optionSelect not in ['1','2','3','4']):
         print('Not an option! Please try again')
         optionSelect = input()
 
@@ -51,7 +51,7 @@ elif demoSelect == 2:
     print('')
     optionSelect = input()
 
-    while (optionSelect not in ['1','2','3','4','5','6']):
+    while (optionSelect not in ['1','2','3','4']):
         print('Not an option! Please try again')
         optionSelect = input()
 

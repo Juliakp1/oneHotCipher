@@ -1,7 +1,7 @@
 
 # The actual working functions
 import unidecode
-import numpy as np;
+import numpy as np
 import matplotlib.pyplot as plt
 
 # ----------------------------- #
@@ -12,7 +12,7 @@ def to_one_hot(texto):
     texto = unidecode.unidecode(texto)
 
     caracteres_utilizados = []
-    #tamanho 26x1
+    #tamanho 27x1
     #ir preenchendo com valores ascii
     #diminuir 97 do valor de cada letra
     #normalizar 
@@ -33,10 +33,6 @@ def to_one_hot(texto):
 
     return array_saida
 
-
-print(to_one_hot("O dia está ensolarado"))
-
-
 # ----------------------------- #
 
 def to_string():
@@ -44,13 +40,21 @@ def to_string():
 
 # ----------------------------- #
 
-def cipher_it():
-    pass
+def cipher_it(text, cipher):
+    
+    arrayText = to_one_hot(text)                          # Into array
+    encodedArray = arrayText @ cipher                     # Into cipher
+    codedText = to_string(encodedArray)                   # Out of array
+    return codedText
 
 # ----------------------------- #
 
-def from_cipher():
-    pass
+def from_cipher(codedText, cipher):
+
+    encodedArray = to_one_hot(codedText)                # Into array
+    arrayText = encodedArray @ np.linalg.inv(cipher)    # Undo cipher
+    text = to_string(arrayText)                         # Out of array
+    return text
 
 # ----------------------------- #
 
@@ -61,3 +65,6 @@ def enigma_it():
 
 def from_enigma():
     pass
+
+
+# print(cipher_it("O dia está ensolarado"))

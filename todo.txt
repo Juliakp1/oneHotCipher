@@ -16,5 +16,4 @@ A biblioteca deve conter:
 
 Left to do:
 
-ask about the cipher inputs
-    do the need to be arrays or strings?
+done! :D

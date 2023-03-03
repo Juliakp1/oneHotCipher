@@ -1,6 +1,6 @@
 
 # The actual working functions
-import unidecode
+import unidecode, random
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -66,14 +66,37 @@ def from_cipher(codedText, cipher):
 
 # ----------------------------- #
 
-def enigma_it():
-    pass
+def enigma_it(text, cipher, auxCipher):
+
+    arrayText = to_one_hot(text)
+    prevCipher = cipher
+    finalList = []
+
+    for character in arrayText:
+        newChar = character @ prevCipher
+        finalList.append(newChar)
+        prevCipher = prevCipher @ auxCipher
+    
+    finalArray = np.array(finalList)
+    codedText = to_string(finalArray)
+    return codedText
 
 # ----------------------------- #
 
-def from_enigma():
-    pass
+def from_enigma(codedText, cipher, auxCipher):
 
-cipher = to_one_hot('XNYZURGSJICWMFQKODHTBLPAVE ')
-print(cipher_it("aabbcc  eeeeee", cipher))
-print(from_cipher(cipher_it("aabbcc  eeeeee", cipher), cipher))
+    arrayText = to_one_hot(codedText)
+    prevCipher = np.linalg.inv(cipher)              # Starts with the inverted cipher
+    invAuxCipher = np.linalg.inv(auxCipher)
+    finalList = []
+
+    for character in arrayText:
+        newChar = character @ prevCipher
+        finalList.append(newChar)
+        prevCipher = invAuxCipher @ prevCipher       # Every letter multiplies the INVERSE of the auxCipher, so it reverses the cryptography
+    
+    finalArray = np.array(finalList)
+    decodedText = to_string(finalArray)
+    return decodedText
+
+# ----------------------------- #

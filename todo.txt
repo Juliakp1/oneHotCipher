@@ -16,14 +16,5 @@ A biblioteca deve conter:
 
 Left to do:
 
-functions: 
-    enigma_it, 
-    from_enigma
-
-demo:
-    inputs in prints_functions_premade
-        require de encryptor
-        the necesary matrixes into the np.arrays
-    random alphabet order gen
-        for ciphers
-        to turn into one_hot later
+ask about the cipher inputs
+    do the need to be arrays or strings?

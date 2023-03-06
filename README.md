@@ -5,7 +5,7 @@ An encryption 'library' in python that can convert and revert strings into/from 
 ------------------------------------------------------
 
 Requirements:
-- IDE (da sua escolha)
+- IDE (your choice)
 - Python
 - pip
     - unidecode
@@ -13,6 +13,10 @@ Requirements:
 
 File a rodar no IDE:
 - demo.py
-    - necessário abrir o folder no explorer (esquerda) para poder acessar as funções
+    - need to open the folder on the explorer (left) to access the functions
 
 ------------------------------------------------------
+
+Adicionally, there is a pip version of it avaliable:
+- https://pypi.org/project/oneHotCipher/#description
+Do 'pip install oneHotCipher' and 'import oneHotCipher' to use it in other projects

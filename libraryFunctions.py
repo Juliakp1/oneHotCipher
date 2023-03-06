@@ -6,9 +6,16 @@ import matplotlib.pyplot as plt
 
 # ----------------------------- #
 
-def to_one_hot(texto):
+def to_one_hot(text):
+    """
+    Takes a piece of text and converts it into a matrix
 
-    texto = texto.lower()
+    Arguments
+    ---------------
+    text (string) : phrase to be encoded
+    """
+
+    texto = text.lower()
     texto = unidecode.unidecode(texto)
 
     caracteres_utilizados = []
@@ -30,11 +37,17 @@ def to_one_hot(texto):
 
 # ----------------------------- #
 
-def to_string(mensagem_codificada):
-    
+def to_string(codedText):
+    """
+    Takes a coded matrix and converts it into read-able text
+
+    Arguments
+    ---------------
+    codedText (list) : a list of lists representing the coded matrix
+    """
+
     string = ""
-    
-    for i in mensagem_codificada:
+    for i in codedText:
         j = 0
         while j < 27:
             if i[j] == 1:
@@ -49,6 +62,14 @@ def to_string(mensagem_codificada):
 # ----------------------------- #
 
 def cipher_it(text, cipher):
+    """
+    Takes the text and ciphers it based on the second argument
+
+    Arguments
+    ---------------
+    text (string) : phrase to be encoded
+    cipher (list) : a list of lists representing a cipher matrix
+    """
     
     arrayText = to_one_hot(text)                          # Into array
     encodedArray = arrayText @ cipher                     # Into cipher
@@ -58,6 +79,14 @@ def cipher_it(text, cipher):
 # ----------------------------- #
 
 def from_cipher(codedText, cipher):
+    """
+    Takes the coded text and uses the cipher to undo the encryption
+
+    Arguments
+    ---------------
+    text (string) : phrase to be decoded
+    cipher (list) : a list of lists representing a cipher matrix
+    """
 
     encodedArray = to_one_hot(codedText)                # Into array
     arrayText = encodedArray @ np.linalg.inv(cipher)    # Undo cipher
@@ -67,6 +96,16 @@ def from_cipher(codedText, cipher):
 # ----------------------------- #
 
 def enigma_it(text, cipher, auxCipher):
+    """
+    Takes the text and ciphers it, and at every letter uses an auxiliary
+    cipher to protect it further
+
+    Arguments
+    ---------------
+    text (string) : phrase to be encoded
+    cipher (list) : a list of lists representing a cipher matrix
+    auxCipher (list) : a list of lists representing a cipher matrix
+    """
 
     arrayText = to_one_hot(text)
     prevCipher = cipher
@@ -84,6 +123,16 @@ def enigma_it(text, cipher, auxCipher):
 # ----------------------------- #
 
 def from_enigma(codedText, cipher, auxCipher):
+    """
+    Takes the text and un-ciphers it, reverting the base cipher alongside the 
+    auxiliary cipher 
+
+    Arguments
+    ---------------
+    text (string) : phrase to be decoded
+    cipher (list) : a list of lists representing a cipher matrix
+    auxCipher (list) : a list of lists representing a cipher matrix
+    """
 
     arrayText = to_one_hot(codedText)
     prevCipher = np.linalg.inv(cipher)              # Starts with the inverted cipher

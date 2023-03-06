@@ -19,4 +19,5 @@ File a rodar no IDE:
 
 Adicionally, there is a pip version of it avaliable:
 - https://pypi.org/project/oneHotCipher/#description
+- 
 Do 'pip install oneHotCipher' and 'import oneHotCipher' to use it in other projects

@@ -16,4 +16,6 @@ A biblioteca deve conter:
 
 Left to do:
 
-done! :D
+make into pip install
+  firstly research how
+  implement

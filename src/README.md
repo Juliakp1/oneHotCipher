@@ -19,11 +19,6 @@ File to run in the IDE:
 
 ------------------------------------------------------
 
-Adicionally, there is a pip version of it avaliable:
-- https://pypi.org/project/oneHotCipher/#description
-
-------------------------------------------------------
-
 Implementations:
 - Cipher
     - Firstly, transforms the text into a lengh-of-text by 27 array, where all the letters and spaces are indicated by a 1 in the corresponding spot (0 for spaces, 1-27 for letters)

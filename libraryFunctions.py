@@ -18,6 +18,9 @@ def to_one_hot(text):
     texto = text.lower()
     texto = unidecode.unidecode(texto)
 
+    if len(text) == 0:
+        return np.array([])
+
     caracteres_utilizados = []
     
     for letra in texto:
@@ -26,7 +29,7 @@ def to_one_hot(text):
         if letra == -64:
         #para espaços
             letra = 0
-        if letra >= 0 and letra <= 27:
+        if letra >= 0 and letra <= 26:
             saida = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             saida[letra] = 1
             caracteres_utilizados.append(saida)
@@ -72,9 +75,11 @@ def cipher_it(text, cipher):
     """
     
     arrayText = to_one_hot(text)                          # Into array
-    encodedArray = arrayText @ cipher                     # Into cipher
-    codedText = to_string(encodedArray)                   # Out of array
-    return codedText
+    if arrayText != np.array([]):
+        encodedArray = arrayText @ cipher                 # Into cipher
+        codedText = to_string(encodedArray)               # Out of array
+        return codedText
+    return ''
 
 # ----------------------------- #
 
@@ -89,9 +94,11 @@ def from_cipher(codedText, cipher):
     """
 
     encodedArray = to_one_hot(codedText)                # Into array
-    arrayText = encodedArray @ np.linalg.inv(cipher)    # Undo cipher
-    text = to_string(arrayText)                         # Out of array
-    return text
+    if encodedArray != np.array([]):
+        arrayText = encodedArray @ np.linalg.inv(cipher)    # Undo cipher
+        text = to_string(arrayText)                         # Out of array
+        return text
+    return ''
 
 # ----------------------------- #
 
@@ -106,19 +113,21 @@ def enigma_it(text, cipher, auxCipher):
     cipher (list) : a list of lists representing a cipher matrix
     auxCipher (list) : a list of lists representing a cipher matrix
     """
-
-    arrayText = to_one_hot(text)
-    prevCipher = cipher
-    finalList = []
-
-    for character in arrayText:
-        newChar = character @ prevCipher
-        finalList.append(newChar)
-        prevCipher = prevCipher @ auxCipher
     
-    finalArray = np.array(finalList)
-    codedText = to_string(finalArray)
-    return codedText
+    arrayText = to_one_hot(text)
+    if arrayText != np.array([]):
+        prevCipher = cipher
+        finalList = []
+
+        for character in arrayText:
+            newChar = character @ prevCipher
+            finalList.append(newChar)
+            prevCipher = prevCipher @ auxCipher
+        
+        finalArray = np.array(finalList)
+        codedText = to_string(finalArray)
+        return codedText
+    return ''
 
 # ----------------------------- #
 
@@ -135,17 +144,19 @@ def from_enigma(codedText, cipher, auxCipher):
     """
 
     arrayText = to_one_hot(codedText)
-    prevCipher = np.linalg.inv(cipher)              # Starts with the inverted cipher
-    invAuxCipher = np.linalg.inv(auxCipher)
-    finalList = []
+    if arrayText != np.array([]):
+        prevCipher = np.linalg.inv(cipher)              # Starts with the inverted cipher
+        invAuxCipher = np.linalg.inv(auxCipher)
+        finalList = []
 
-    for character in arrayText:
-        newChar = character @ prevCipher
-        finalList.append(newChar)
-        prevCipher = invAuxCipher @ prevCipher       # Every letter multiplies the INVERSE of the auxCipher, so it reverses the cryptography
-    
-    finalArray = np.array(finalList)
-    decodedText = to_string(finalArray)
-    return decodedText
+        for character in arrayText:
+            newChar = character @ prevCipher
+            finalList.append(newChar)
+            prevCipher = invAuxCipher @ prevCipher       # Every letter multiplies the INVERSE of the auxCipher, so it reverses the cryptography
+        
+        finalArray = np.array(finalList)
+        decodedText = to_string(finalArray)
+        return decodedText
+    return ''
 
 # ----------------------------- #

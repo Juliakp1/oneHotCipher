@@ -10,6 +10,8 @@ Requirements:
 - pip
     - unidecode
     - numpy
+    - .
+        - installs the internal library   
 
 File a rodar no IDE:
 - demo.py

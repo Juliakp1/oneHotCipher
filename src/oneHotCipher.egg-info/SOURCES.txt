@@ -1,5 +1,7 @@
 README.md
 setup.py
+oneHotCipher/__init__.py
+oneHotCipher/libraryFunctions.py
 oneHotCipher.egg-info/PKG-INFO
 oneHotCipher.egg-info/SOURCES.txt
 oneHotCipher.egg-info/dependency_links.txt

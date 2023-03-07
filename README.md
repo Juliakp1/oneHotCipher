@@ -13,7 +13,7 @@ Requirements:
     - .
         - installs the internal library   
 
-File a rodar no IDE:
+File to run in the IDE:
 - demo.py
     - need to open the folder on the explorer (left) to access the functions
 

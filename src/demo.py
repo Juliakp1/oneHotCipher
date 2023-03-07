@@ -94,6 +94,7 @@ while not exitRun:
             print('This cipher isnt valid! Please use all the alphabet letters AND a space')
             print('Example: ')
             print(generates_random_alphabet())
+            print('')
             cipher = input()
 
         function = returns_function_chosen(optionSelect)

@@ -17,5 +17,3 @@ A biblioteca deve conter:
 Left to do:
 
 make into pip install
-  firstly research how
-  implement

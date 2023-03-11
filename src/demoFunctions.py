@@ -1,7 +1,7 @@
 
 import numpy as np
 import random
-from oneHotCipher import to_one_hot, cipher_it, from_cipher, enigma_it, from_enigma
+from oneHotCipher.libraryFunctions import to_one_hot, cipher_it, from_cipher, enigma_it, from_enigma
 
 # A demo program to show off all of the actions you can take in the oneHotLibrary
 # By the way, the reason why the function lists ave the 0th index as '' is beacuse there is no option for that slot, and starting at 0 in options in confusing

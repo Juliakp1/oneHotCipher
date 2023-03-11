@@ -1,11 +1,10 @@
 from oneHotCipher.libraryFunctions import *
 from flask import Flask, jsonify, request
 import ast
-from flask_restful import Api
 import json
 
 app = Flask(__name__)
-api = Api(app)
+
 
 
 @app.route('/convert/to_one_hot/', methods=['POST'])
